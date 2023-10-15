@@ -1,0 +1,24 @@
+{{- with .cxt}} {{/* Apply proper context from dict */}}
+{{- if (and .Params.cover.image (not $.isHidden)) }}
+{{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
+<figure class="entry-cover">
+    {{- $responsiveImages := (.Params.cover.responsiveImages | default site.Params.cover.responsiveImages) | default true }}
+    {{- $addLink := (and site.Params.cover.linkFullImages (not $.IsHome)) }}
+    {{- $pageBundleCover     := (.Resources.ByType "image").GetMatch (printf "*%s*" (.Params.cover.image)) }}
+    {{- $globalResourcesCover := (resources.ByType "image").GetMatch (printf "*%s*" (.Params.cover.image)) }}
+    {{- $cover := (or $pageBundleCover $globalResourcesCover)}}
+    {{- if $cover -}}{{/* i.e it is present in page bundle */}}
+        <img loading="lazy" src="{{ (path.Join .RelPermalink .Params.cover.image) | absURL }}" alt="{{ $alt }}">
+    {{- else }}{{/* For absolute urls and external links, no img processing here */}}
+        {{- if $addLink }}<a href="{{ (.Params.cover.image) | absURL }}" target="_blank"
+            rel="noopener noreferrer">{{ end -}}
+            <img loading="lazy" src="{{ (.Params.cover.image) | absURL }}"  alt="{{ $alt }}">
+    {{- end }}
+    {{- if $addLink }}</a>{{ end -}}
+    {{/*  Display Caption  */}}
+    {{- if not $.IsHome }}
+        {{ with .Params.cover.caption }}<p>{{ . | markdownify }}</p>{{- end }}
+    {{- end }}
+</figure>
+{{- end }}{{/* End image */}}
+{{- end -}}{{/* End context */ -}}

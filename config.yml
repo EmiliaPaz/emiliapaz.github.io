@@ -1,0 +1,65 @@
+title: "EmiliaPaz"
+theme: "PaperMod"
+
+enableEmoji: true
+languageCode: en-us
+
+languages:
+  en:
+    languageName: ":en:"
+    weight: 1
+    menu:
+      main:
+        - identifier: about
+          name: about
+          url: /about/
+          weight: 10
+        - identifier: work
+          name: work
+          url: /work/
+          weight: 20
+        - identifier: projects
+          name: projects
+          url: /projects/
+          weight: 30
+        - identifier: activities
+          name: activities
+          url: /activities/
+          weight: 40
+
+  es:
+    languageName: ":es:"
+    languageCode: es
+    weight: 2
+    menu:
+      main:
+        - identifier: about
+          name: about
+          url: /about/
+          weight: 10
+        - identifier: work
+          name: work
+          url: /work/
+          weight: 20
+        - identifier: projects
+          name: projects
+          url: /projects/
+          weight: 30
+        - identifier: activities
+          name: activities
+          url: /activities/
+          weight: 40
+
+params:
+  profileMode:
+    enabled: true
+    title: "Emilia Paz"
+    subtitle: "Software Engineer   |   Design Enthusiast   |   Active Learner"
+
+  socialIcons:
+    - name: github
+      url: https://github.com/EmiliaPaz
+    - name: linkedin
+      url: https://www.linkedin.com/in/emiliapaz/
+    - name: resume
+      url: https://drive.google.com/file/d/1geH1vXBgEh1JPyWElqaBLR6V6yKd0_PG/view
