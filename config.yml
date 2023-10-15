@@ -1,5 +1,6 @@
 title: "EmiliaPaz"
 theme: "PaperMod"
+baseURL: "https://emiliapaz.github.io/"
 
 enableEmoji: true
 languageCode: en-us
